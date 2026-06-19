@@ -34,80 +34,80 @@
 
     <div class="menu-grid">
 
-        <div class="menu-card">
-            <span>🍓</span>
-            <h3>Strawberry Cake</h3>
-            <p>Rp 95.000</p>
-        </div>
+      <div class="menu-card">
+        <span>🍓</span>
+        <h3>Strawberry Cake</h3>
+        <p>Rp 95.000</p>
+      </div>
 
-        <div class="menu-card">
-            <span>🍫</span>
-            <h3>Chocolate Cake</h3>
-            <p>Rp 110.000</p>
-        </div>
+      <div class="menu-card">
+        <span>🍫</span>
+        <h3>Chocolate Cake</h3>
+        <p>Rp 110.000</p>
+      </div>
 
-        <div class="menu-card">
-            <span>🫐</span>
-            <h3>Blueberry Cheesecake</h3>
-            <p>Rp 125.000</p>
-        </div>
+      <div class="menu-card">
+        <span>🫐</span>
+        <h3>Blueberry Cheesecake</h3>
+        <p>Rp 125.000</p>
+      </div>
 
-        <div class="menu-card">
-            <span>🧁</span>
-            <h3>Mini Cupcake</h3>
-            <p>Rp 45.000</p>
-        </div>
+      <div class="menu-card">
+        <span>🧁</span>
+        <h3>Mini Cupcake</h3>
+        <p>Rp 45.000</p>
+      </div>
 
-        <div class="menu-card">
-            <span>🍩</span>
-            <h3>Donut Strawberry</h3>
-            <p>Rp 15.000</p>
-        </div>
+      <div class="menu-card">
+        <span>🍩</span>
+        <h3>Donut Strawberry</h3>
+        <p>Rp 15.000</p>
+      </div>
 
-        <div class="menu-card">
-            <span>🥐</span>
-            <h3>Butter Croissant</h3>
-            <p>Rp 18.000</p>
-        </div>
+      <div class="menu-card">
+        <span>🥐</span>
+        <h3>Butter Croissant</h3>
+        <p>Rp 18.000</p>
+      </div>
 
-        <div class="menu-card">
-            <span>🍪</span>
-            <h3>Cookies Box</h3>
-            <p>Rp 35.000</p>
-        </div>
+      <div class="menu-card">
+        <span>🍪</span>
+        <h3>Cookies Box</h3>
+        <p>Rp 35.000</p>
+      </div>
 
-        <div class="menu-card">
-            <span>🍰</span>
-            <h3>Red Velvet Cake</h3>
-            <p>Rp 120.000</p>
-        </div>
+      <div class="menu-card">
+        <span>🍰</span>
+        <h3>Red Velvet Cake</h3>
+        <p>Rp 120.000</p>
+      </div>
 
-        <div class="menu-card">
-            <span>🍮</span>
-            <h3>Caramel Pudding</h3>
-            <p>Rp 25.000</p>
-        </div>
+      <div class="menu-card">
+        <span>🍮</span>
+        <h3>Caramel Pudding</h3>
+        <p>Rp 25.000</p>
+      </div>
 
-        <div class="menu-card">
-            <span>🥨</span>
-            <h3>Pretzel Sweet</h3>
-            <p>Rp 20.000</p>
-        </div>
+      <div class="menu-card">
+        <span>🥨</span>
+        <h3>Pretzel Sweet</h3>
+        <p>Rp 20.000</p>
+      </div>
 
-        <div class="menu-card">
-            <span>🎂</span>
-            <h3>Birthday Cake</h3>
-            <p>Rp 250.000</p>
-        </div>
+      <div class="menu-card">
+        <span>🎂</span>
+        <h3>Birthday Cake</h3>
+        <p>Rp 250.000</p>
+      </div>
 
-        <div class="menu-card">
-            <span>🍬</span>
-            <h3>Sweet Candy Box</h3>
-            <p>Rp 40.000</p>
-        </div>
+      <div class="menu-card">
+        <span>🍬</span>
+        <h3>Sweet Candy Box</h3>
+        <p>Rp 40.000</p>
+      </div>
 
     </div>
-</section>
+  </section>
 
   <main>
     <section class="card">
@@ -129,17 +129,25 @@
             <span class="error-text" id="nohpError"></span>
           </div>
 
-          <div class="field full">
-            <label for="layanan">Jenis Layanan</label>
-            <select id="layanan">
-              <option value="">— Pilih jenis layanan —</option>
-              <option value="Pre-Order Kue Ulang Tahun">🎂 Pre-Order Kue Ulang Tahun</option>
-              <option value="Pre-Order Pastry Harian">🥐 Pre-Order Pastry Harian</option>
-              <option value="Custom Cake Design">🎨 Custom Cake Design</option>
-              <option value="Catering Acara">🍰 Catering Acara</option>
-              <option value="Workshop Baking">👩‍🍳 Workshop Baking</option>
-            </select>
-            <span class="error-text" id="layananError"></span>
+          <div class="form-row">
+
+            <div class="field">
+              <label for="tanggal">📅 Tanggal Pemesanan</label>
+              <input type="date" id="tanggal">
+            </div>
+
+            <div class="field">
+              <label for="layanan">🧁 Jenis Layanan</label>
+              <select id="layanan">
+                <option value="">— Pilih jenis layanan —</option>
+                <option value="Pre-Order Kue Ulang Tahun">🎂 Pre-Order Kue Ulang Tahun</option>
+                <option value="Pre-Order Pastry Harian">🥐 Pre-Order Pastry Harian</option>
+                <option value="Custom Cake Design">🎨 Custom Cake Design</option>
+                <option value="Catering Acara">🍰 Catering Acara</option>
+                <option value="Workshop Baking">👩‍🍳 Workshop Baking</option>
+              </select>
+            </div>
+
           </div>
 
           <div class="field full">
@@ -160,6 +168,7 @@
 
   <footer>Dibuat dengan 💖 — Honeycrumb Bakery Order System</footer>
 
+  <div id="notification"></div>
   <script src="js/script.js"></script>
 </body>
 

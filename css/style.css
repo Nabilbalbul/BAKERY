@@ -751,3 +751,697 @@ footer{
 
 }
 
+.table-meta{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.action-btn{
+    border:none;
+    padding:8px 12px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:700;
+    margin:2px;
+}
+
+.edit-btn{
+    background:#ffd6e8;
+    color:#c14b79;
+}
+
+.delete-btn{
+    background:#ffe5e5;
+    color:#d9534f;
+}
+
+.edit-btn:hover,
+.delete-btn:hover{
+    transform:translateY(-2px);
+}
+
+#notification{
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:linear-gradient(
+        135deg,
+        #ff9fc4,
+        #ffd88c
+    );
+    color:white;
+    padding:15px 25px;
+    border-radius:20px;
+    font-weight:700;
+    box-shadow:0 10px 25px rgba(255,182,193,.3);
+
+    transform:translateX(400px);
+    transition:.5s;
+
+    z-index:9999;
+}
+
+#notification.show{
+    transform:translateX(0);
+}
+
+.edit-btn,
+.delete-btn{
+    border:none;
+    padding:8px 12px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:1rem;
+    transition:.3s;
+}
+
+.edit-btn{
+    background:#ffe7f1;
+}
+
+.delete-btn{
+    background:#ffe1e1;
+}
+
+.edit-btn:hover,
+.delete-btn:hover{
+    transform:scale(1.1);
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(280px,1fr));
+    gap:50px;
+}
+
+@media(max-width:768px){
+
+  .form-row{
+      grid-template-columns:1fr;
+  }
+
+}
+
+/* ==========================
+   CUTE EDIT DELETE ANIMATION
+   HONEYCRUMB BAKERY STYLE
+========================== */
+
+
+/* BUTTON EDIT DELETE */
+
+.action-btn{
+    position:relative;
+    overflow:hidden;
+    transition:.35s ease;
+}
+
+
+.action-btn::after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:0;
+    background:rgba(255,255,255,.6);
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+    transition:.5s;
+}
+
+
+.action-btn:active::after{
+    width:120px;
+    height:120px;
+}
+
+
+/* EDIT BUTTON */
+
+.edit-btn{
+    background:linear-gradient(
+        135deg,
+        #ffd6e8,
+        #fff0f7
+    );
+
+    color:#c14b79;
+    box-shadow:0 5px 15px rgba(255,182,193,.25);
+}
+
+
+.edit-btn:hover{
+
+    transform:
+    translateY(-5px)
+    rotate(-3deg)
+    scale(1.08);
+
+    box-shadow:
+    0 12px 25px rgba(255,182,193,.4);
+}
+
+
+/* DELETE BUTTON */
+
+.delete-btn{
+
+    background:linear-gradient(
+        135deg,
+        #ffdede,
+        #fff1f1
+    );
+
+    color:#d9534f;
+
+    box-shadow:
+    0 5px 15px rgba(255,150,150,.2);
+}
+
+
+.delete-btn:hover{
+
+    transform:
+    translateY(-5px)
+    rotate(3deg)
+    scale(1.08);
+
+    box-shadow:
+    0 12px 25px rgba(255,150,150,.35);
+}
+
+
+/* SAAT DATA DIHAPUS */
+
+.delete-animation{
+
+    animation:
+    deleteCute .5s ease forwards;
+
+}
+
+
+@keyframes deleteCute{
+
+    0%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+
+    30%{
+        transform:
+        scale(1.1)
+        rotate(5deg);
+    }
+
+
+    100%{
+
+        opacity:0;
+
+        transform:
+        scale(.5)
+        rotate(-10deg);
+
+        height:0;
+        padding:0;
+    }
+
+}
+
+
+
+/* SAAT DATA DIEDIT */
+
+.edit-animation{
+
+    animation:
+    editCute .6s ease;
+
+}
+
+
+@keyframes editCute{
+
+
+    0%{
+        transform:scale(1);
+    }
+
+
+    30%{
+
+        transform:
+        scale(1.08)
+        rotate(-3deg);
+
+        background:#fff0f7;
+    }
+
+
+    60%{
+
+        transform:
+        scale(.95)
+        rotate(3deg);
+
+    }
+
+
+    100%{
+
+        transform:
+        scale(1)
+        rotate(0);
+
+    }
+
+}
+
+
+
+/* POPUP KONFIRMASI HAPUS */
+
+.delete-popup{
+
+    position:fixed;
+
+    top:50%;
+    left:50%;
+
+    transform:
+    translate(-50%,-50%)
+    scale(0);
+
+    background:white;
+
+    width:350px;
+
+    padding:35px;
+
+    border-radius:35px;
+
+    text-align:center;
+
+    z-index:10000;
+
+    box-shadow:
+    0 20px 50px rgba(255,182,193,.35);
+
+    transition:.4s;
+
+}
+
+
+
+.delete-popup.show{
+
+    transform:
+    translate(-50%,-50%)
+    scale(1);
+
+}
+
+
+
+.delete-popup::before{
+
+    content:"🧁";
+
+    display:block;
+
+    font-size:4rem;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.delete-popup h3{
+
+    color:#c14b79;
+
+    font-family:'Fredoka',sans-serif;
+
+}
+
+
+
+.delete-popup p{
+
+    color:#777;
+
+}
+
+
+
+/* BUTTON POPUP */
+
+
+.popup-btn{
+
+    margin:10px;
+
+    padding:12px 25px;
+
+    border:none;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+}
+
+
+
+.confirm-delete{
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff9fc4,
+    #ffd88c
+    );
+
+    color:white;
+
+}
+
+
+
+.cancel-delete{
+
+    background:#fff1f6;
+
+    color:#c14b79;
+
+}
+
+
+
+.popup-btn:hover{
+
+    transform:
+    translateY(-3px)
+    scale(1.05);
+
+}
+
+
+
+/* NOTIFICATION */
+
+#notification{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+
+
+#notification::before{
+
+    content:"🍪";
+
+    font-size:1.4rem;
+
+}
+
+
+
+/* SUCCESS MESSAGE */
+
+.success-message{
+
+    animation:
+    successPop .5s ease;
+
+}
+
+
+@keyframes successPop{
+
+
+    0%{
+
+        transform:
+        scale(.5);
+
+        opacity:0;
+
+    }
+
+
+    70%{
+
+        transform:
+        scale(1.1);
+
+    }
+
+
+    100%{
+
+        transform:
+        scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+.cute-notification{
+
+    position:fixed;
+
+    top:25px;
+    right:25px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff9fc4,
+        #ffd88c
+    );
+
+    color:white;
+
+    padding:15px 25px;
+
+    border-radius:25px;
+
+    font-weight:700;
+
+    font-family:'Quicksand',sans-serif;
+
+    box-shadow:
+    0 10px 30px rgba(255,182,193,.35);
+
+
+    transform:
+    translateX(400px);
+
+
+    transition:.5s;
+
+    z-index:9999;
+
+}
+
+
+.cute-notification.show{
+
+    transform:
+    translateX(0);
+
+}
+
+/* ==========================
+   DELETE POPUP CUTE
+========================== */
+
+
+.delete-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(255,192,203,.25);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+
+}
+
+
+
+.delete-modal.show{
+
+    opacity:1;
+
+    pointer-events:auto;
+
+}
+
+
+
+.delete-box{
+
+
+    width:350px;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:35px;
+
+    text-align:center;
+
+
+    box-shadow:
+    0 20px 50px rgba(255,182,193,.4);
+
+
+    transform:
+    scale(.7);
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.delete-modal.show .delete-box{
+
+    transform:
+    scale(1);
+
+}
+
+
+
+.delete-emoji{
+
+    font-size:4rem;
+
+    animation:
+    float 2s infinite;
+
+}
+
+
+
+.delete-box h3{
+
+    color:#c14b79;
+
+    font-family:'Fredoka',sans-serif;
+
+    font-size:1.8rem;
+
+}
+
+
+
+.delete-box p{
+
+    color:#777;
+
+    line-height:1.6;
+
+}
+
+
+
+.delete-actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+
+
+.delete-actions button{
+
+    border:none;
+
+    padding:12px 25px;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+
+
+.confirm-delete{
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff9fc4,
+    #ffb88c
+    );
+
+    color:white;
+
+}
+
+
+
+.cancel-delete{
+
+    background:#fff0f6;
+
+    color:#c14b79;
+
+}
+
+
+
+.delete-actions button:hover{
+
+    transform:
+    translateY(-4px)
+    scale(1.05);
+
+}

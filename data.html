@@ -16,6 +16,7 @@
 
 <body>
 
+  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="brand">
       <span class="brand-icon">🧁</span>
@@ -28,31 +29,27 @@
     </div>
   </nav>
 
+  <!-- HERO -->
   <header class="hero">
-
     <div class="garnish">
       🍰 🥐 🍪 🧁 🍩
     </div>
-
     <h1>Dashboard Pesanan Honeycrumb</h1>
-
     <p>
       Kelola semua pesanan pelanggan dengan mudah,
       mulai dari cake ulang tahun hingga pastry favorit.
       Freshly baked with love 💖
     </p>
-
   </header>
-
 
   <main>
 
+    <!-- DASHBOARD -->
     <section class="dashboard-cute">
-
       <div class="cute-box">
-        <span>🧁</span>
+        <span>📦</span>
         <h3>Total Pesanan</h3>
-        <p id="totalPesanan">0 Pesanan</p>
+        <p id="totalPesanan">0</p>
       </div>
 
       <div class="cute-box">
@@ -75,54 +72,48 @@
 
     </section>
 
+    <!-- QUOTE -->
     <section class="quote-section">
       <div class="quote-card">
         ✨ Life is what you bake it ✨
       </div>
     </section>
 
+    <!-- TABEL -->
     <section class="card">
-
       <div class="table-meta">
         <h2 class="card-title">
           📋 Data Pesanan Pelanggan
         </h2>
-
         <span class="count-pill" id="countPill">
           0 Pesanan
         </span>
+
       </div>
 
       <div class="table-wrap" id="tableWrap">
-
         <table>
-
           <thead>
             <tr>
               <th>No</th>
               <th>Nama</th>
               <th>No HP</th>
+              <th>Tanggal Ambil</th>
               <th>Jenis Layanan</th>
               <th>Keterangan</th>
-              <th>Tanggal</th>
+              <th>Tanggal Input</th>
               <th>Aksi</th>
             </tr>
           </thead>
-
           <tbody id="dataTableBody">
-
           </tbody>
-
         </table>
-
       </div>
 
+      <!-- EMPTY STATE -->
       <div class="empty-state" id="emptyState">
-
         <span class="emoji">🍪</span>
-
         <h3>Belum Ada Pesanan</h3>
-
         <p>
           Yuk jadi pelanggan pertama Honeycrumb Bakery 💖
         </p>
@@ -139,13 +130,50 @@
 
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <p>🧁 Honeycrumb Bakery</p>
     <p>Freshly Baked With Love 💖</p>
   </footer>
 
-
+  <!-- JAVASCRIPT -->
   <script src="js/script.js"></script>
+
+  <!-- POPUP DELETE CUTE -->
+<div class="delete-modal" id="deleteModal">
+
+    <div class="delete-box">
+
+        <div class="delete-emoji">
+            🧁
+        </div>
+
+        <h3>Hapus Pesanan?</h3>
+
+        <p>
+            Apakah kamu yakin ingin menghapus pesanan ini dari dapur Honeycrumb? 💕
+        </p>
+
+        <div class="delete-actions">
+
+            <button 
+            class="cancel-delete"
+            onclick="closeDeleteModal()">
+                🍪 Batal
+            </button>
+
+
+            <button 
+            class="confirm-delete"
+            onclick="confirmDelete()">
+                🗑️ Hapus
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 
