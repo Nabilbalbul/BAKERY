@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Honeycrumb Bakery — Form Pesanan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="brand"><span class="brand-icon">🧁</span> Honeycrumb Bakery</div>
+    <div class="nav-links">
+      <a href="index.html" class="active">Form Pesanan</a>
+      <a href="data.html">Data Pesanan</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="garnish">🍰 🥐 🍪 🧁 🍩</div>
+    <h1>Pesan Kue Favoritmu</h1>
+    <p>Isi formulir di bawah ini untuk mencatat pesanan kue, pastry, atau layanan bakery lainnya. Data akan langsung
+      tersimpan dan bisa dilihat di halaman Data Pesanan.</p>
+  </header>
+
+  <section class="menu-section">
+    <h2>🧁 Menu Favorit Cloudy Crumbs 🧁</h2>
+
+    <div class="menu-grid">
+
+        <div class="menu-card">
+            <span>🍓</span>
+            <h3>Strawberry Cake</h3>
+            <p>Rp 95.000</p>
+        </div>
+
+        <div class="menu-card">
+            <span>🍫</span>
+            <h3>Chocolate Cake</h3>
+            <p>Rp 110.000</p>
+        </div>
+
+        <div class="menu-card">
+            <span>🫐</span>
+            <h3>Blueberry Cheesecake</h3>
+            <p>Rp 125.000</p>
+        </div>
+
+        <div class="menu-card">
+            <span>🧁</span>
+            <h3>Mini Cupcake</h3>
+            <p>Rp 45.000</p>
+        </div>
+
+        <div class="menu-card">
+            <span>🍩</span>
+            <h3>Donut Strawberry</h3>
+            <p>Rp 15.000</p>
+        </div>
+
+        <div class="menu-card">
+            <span>🥐</span>
+            <h3>Butter Croissant</h3>
+            <p>Rp 18.000</p>
+        </div>
+
+        <div class="menu-card">
+            <span>🍪</span>
+            <h3>Cookies Box</h3>
+            <p>Rp 35.000</p>
+        </div>
+
+        <div class="menu-card">
+            <span>🍰</span>
+            <h3>Red Velvet Cake</h3>
+            <p>Rp 120.000</p>
+        </div>
+
+        <div class="menu-card">
+            <span>🍮</span>
+            <h3>Caramel Pudding</h3>
+            <p>Rp 25.000</p>
+        </div>
+
+        <div class="menu-card">
+            <span>🥨</span>
+            <h3>Pretzel Sweet</h3>
+            <p>Rp 20.000</p>
+        </div>
+
+        <div class="menu-card">
+            <span>🎂</span>
+            <h3>Birthday Cake</h3>
+            <p>Rp 250.000</p>
+        </div>
+
+        <div class="menu-card">
+            <span>🍬</span>
+            <h3>Sweet Candy Box</h3>
+            <p>Rp 40.000</p>
+        </div>
+
+    </div>
+</section>
+
+  <main>
+    <section class="card">
+      <h2 class="card-title">Formulir Pemesanan</h2>
+      <p class="card-subtitle">Semua kolom bertanda wajib diisi sebelum pesanan bisa dikirim.</p>
+
+      <form id="orderForm" novalidate>
+        <div class="form-grid">
+
+          <div class="field">
+            <label for="nama">Nama Pelanggan</label>
+            <input type="text" id="nama" placeholder="Contoh: Citra Ayu">
+            <span class="error-text" id="namaError"></span>
+          </div>
+
+          <div class="field">
+            <label for="nohp">📱 Nomor HP</label>
+            <input type="tel" id="nohp" placeholder="Contoh: 081234567890">
+            <span class="error-text" id="nohpError"></span>
+          </div>
+
+          <div class="field full">
+            <label for="layanan">Jenis Layanan</label>
+            <select id="layanan">
+              <option value="">— Pilih jenis layanan —</option>
+              <option value="Pre-Order Kue Ulang Tahun">🎂 Pre-Order Kue Ulang Tahun</option>
+              <option value="Pre-Order Pastry Harian">🥐 Pre-Order Pastry Harian</option>
+              <option value="Custom Cake Design">🎨 Custom Cake Design</option>
+              <option value="Catering Acara">🍰 Catering Acara</option>
+              <option value="Workshop Baking">👩‍🍳 Workshop Baking</option>
+            </select>
+            <span class="error-text" id="layananError"></span>
+          </div>
+
+          <div class="field full">
+            <label for="keterangan">Keterangan <span class="hint">(opsional)</span></label>
+            <textarea id="keterangan"
+              placeholder="Contoh: 1 loyang red velvet ukuran 20cm, diambil tanggal 25 Juni, tulisan 'Happy Birthday'."></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="reset" class="btn btn-ghost">Bersihkan</button>
+            <button type="submit" class="btn btn-primary">Kirim Pesanan 🧁</button>
+          </div>
+
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>Dibuat dengan 💖 — Honeycrumb Bakery Order System</footer>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
