@@ -74,7 +74,9 @@ if (form) {
       waktu: new Date().toLocaleString("id-ID")
     };
 
-    if (editIndex !== null) {
+    const isEdit = editIndex !== null;
+
+    if (isEdit) {
 
       dataPesanan[editIndex] = dataBaru;
 
@@ -100,9 +102,27 @@ if (form) {
 
     form.reset();
 
+    const overlay = document.getElementById("successOverlay");
+
+    if (overlay) {
+
+      const overlayTitle = overlay.querySelector("h3");
+      const overlayText = overlay.querySelector("p");
+
+      if (isEdit) {
+        overlayTitle.textContent = "Pesanan Diperbarui!";
+        overlayText.textContent = "Perubahan pesananmu sudah disimpan. Mengarahkan ke halaman data...";
+      } else {
+        overlayTitle.textContent = "Pesanan Terkirim!";
+        overlayText.textContent = "Yeay, pesananmu sudah masuk ke dapur Honeycrumb. Mengarahkan ke halaman data...";
+      }
+
+      overlay.classList.add("show");
+    }
+
     setTimeout(() => {
       window.location.href = "data.html";
-    }, 1500);
+    }, 1600);
 
   });
 
@@ -322,3 +342,50 @@ function editData(index) {
 
 
 }
+
+// ===============================
+// BACKGROUND DECOR — CUTE FLOATING
+// (cupcake, donut, sprinkles, hati, bintang)
+// Dipasang otomatis di semua halaman
+// ===============================
+
+function initBackgroundDecor() {
+
+  const existing = document.querySelector(".bg-decor");
+  if (existing) return; // jangan dobel kalau sudah ada
+
+  const wrap = document.createElement("div");
+  wrap.className = "bg-decor";
+
+  const icons = ["🧁", "🍩", "🍰", "🍪", "🎂", "🍓", "💖", "✨", "⭐", "🌸"];
+  const totalItems = window.innerWidth < 600 ? 16 : 26;
+
+  for (let i = 0; i < totalItems; i++) {
+
+    const el = document.createElement("span");
+    const icon = icons[Math.floor(Math.random() * icons.length)];
+
+    el.textContent = icon;
+
+    if (icon === "✨" || icon === "⭐") {
+      el.classList.add("sparkle");
+    }
+
+    const size = (Math.random() * 1.6 + 1).toFixed(2);
+    const left = (Math.random() * 100).toFixed(2);
+    const duration = (Math.random() * 12 + 14).toFixed(1);
+    const delay = (Math.random() * 18).toFixed(1);
+
+    el.style.left = left + "vw";
+    el.style.fontSize = size + "rem";
+    el.style.setProperty("--fall-duration", duration + "s");
+    el.style.animationDuration = duration + "s";
+    el.style.animationDelay = "-" + delay + "s";
+
+    wrap.appendChild(el);
+  }
+
+  document.body.prepend(wrap);
+}
+
+document.addEventListener("DOMContentLoaded", initBackgroundDecor);
