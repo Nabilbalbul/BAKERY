@@ -399,7 +399,7 @@ if (form) {
       dataPesanan.push(dataBaru);
 
       showNotification(
-        "🎂 Yeay! Pesanan kamu sudah masuk ke dapur Honeycrumb 💖"
+        "🎂 Yeay! Pesanan kamu sudah masuk ke dapur La Lana 💖"
       );
     }
 
@@ -588,7 +588,7 @@ function renderTable() {
     const status = item.status || "Pending";
     const waNumber = item.nohp.replace(/^0/, "62").replace(/\D/g, "");
     const waMessage = encodeURIComponent(
-      `Halo ${item.nama}! 🧁 Pesanan kamu (${item.layanan}) untuk tanggal ${item.tanggal || "-"} sudah kami catat ya. Status saat ini: ${status}. Terima kasih sudah memesan di Honeycrumb Bakery 💖`
+      `Halo ${item.nama}! 🧁 Pesanan kamu (${item.layanan}) untuk tanggal ${item.tanggal || "-"} sudah kami catat ya. Status saat ini: ${status}. Terima kasih sudah memesan di La Lana Patisserie 💖`
     );
 
     tbody.innerHTML += `
@@ -745,7 +745,7 @@ function confirmDelete(){
 
 
     showNotification(
-        "🗑️ Pesanan berhasil dihapus dari Honeycrumb 💖"
+        "🗑️ Pesanan berhasil dihapus dari La Lana 💖"
     );
 
 
