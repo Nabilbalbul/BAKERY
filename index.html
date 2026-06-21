@@ -14,12 +14,28 @@
 
 <body>
 
+  <div id="preloader">
+    <div class="preloader-donut">🍩</div>
+    <div class="preloader-text">Memanggang halaman...</div>
+  </div>
+
+  <button id="scrollTopBtn" title="Kembali ke atas">⬆️</button>
+
+  <div class="bg-bubbles" aria-hidden="true">
+    <span>🍓</span><span>🧁</span><span>🍩</span><span>🍰</span><span>🥐</span>
+    <span>🍪</span><span>🎂</span><span>🍮</span><span>🥨</span><span>🍬</span>
+  </div>
+
   <nav class="navbar">
     <div class="brand"><span class="brand-icon">🧁</span> Honeycrumb Bakery</div>
-    <div class="nav-links">
-      <a href="landing.html">Home</a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
       <a href="index.html" class="active">Form Pesanan</a>
       <a href="data.html">Data Pesanan</a>
+      <a href="tentang.html">Tentang Kami</a>
+      <button class="theme-toggle" id="themeToggle" title="Mode Gelap/Terang">🌙</button>
     </div>
   </nav>
 
@@ -33,78 +49,159 @@
   <section class="menu-section">
     <h2>🧁 Menu Favorit Cloudy Crumbs 🧁</h2>
 
-    <div class="menu-grid">
+    <p class="menu-hint">💡 Tap menu untuk menambahkannya langsung ke pesananmu!</p>
 
-      <div class="menu-card">
+    <div class="menu-grid" id="menuGrid">
+
+      <div class="menu-card" data-name="Strawberry Cake" data-price="95000" data-emoji="🍓">
         <span>🍓</span>
         <h3>Strawberry Cake</h3>
         <p>Rp 95.000</p>
+        <span class="qty-badge" hidden>0</span>
       </div>
 
-      <div class="menu-card">
+      <div class="menu-card" data-name="Chocolate Cake" data-price="110000" data-emoji="🍫">
         <span>🍫</span>
         <h3>Chocolate Cake</h3>
         <p>Rp 110.000</p>
+        <span class="qty-badge" hidden>0</span>
       </div>
 
-      <div class="menu-card">
+      <div class="menu-card" data-name="Blueberry Cheesecake" data-price="125000" data-emoji="🫐">
         <span>🫐</span>
         <h3>Blueberry Cheesecake</h3>
         <p>Rp 125.000</p>
+        <span class="qty-badge" hidden>0</span>
       </div>
 
-      <div class="menu-card">
+      <div class="menu-card" data-name="Mini Cupcake" data-price="45000" data-emoji="🧁">
         <span>🧁</span>
         <h3>Mini Cupcake</h3>
         <p>Rp 45.000</p>
+        <span class="qty-badge" hidden>0</span>
       </div>
 
-      <div class="menu-card">
+      <div class="menu-card" data-name="Donut Strawberry" data-price="15000" data-emoji="🍩">
         <span>🍩</span>
         <h3>Donut Strawberry</h3>
         <p>Rp 15.000</p>
+        <span class="qty-badge" hidden>0</span>
       </div>
 
-      <div class="menu-card">
+      <div class="menu-card" data-name="Butter Croissant" data-price="18000" data-emoji="🥐">
         <span>🥐</span>
         <h3>Butter Croissant</h3>
         <p>Rp 18.000</p>
+        <span class="qty-badge" hidden>0</span>
       </div>
 
-      <div class="menu-card">
+      <div class="menu-card" data-name="Cookies Box" data-price="35000" data-emoji="🍪">
         <span>🍪</span>
         <h3>Cookies Box</h3>
         <p>Rp 35.000</p>
+        <span class="qty-badge" hidden>0</span>
       </div>
 
-      <div class="menu-card">
+      <div class="menu-card" data-name="Red Velvet Cake" data-price="120000" data-emoji="🍰">
         <span>🍰</span>
         <h3>Red Velvet Cake</h3>
         <p>Rp 120.000</p>
+        <span class="qty-badge" hidden>0</span>
       </div>
 
-      <div class="menu-card">
+      <div class="menu-card" data-name="Caramel Pudding" data-price="25000" data-emoji="🍮">
         <span>🍮</span>
         <h3>Caramel Pudding</h3>
         <p>Rp 25.000</p>
+        <span class="qty-badge" hidden>0</span>
       </div>
 
-      <div class="menu-card">
+      <div class="menu-card" data-name="Pretzel Sweet" data-price="20000" data-emoji="🥨">
         <span>🥨</span>
         <h3>Pretzel Sweet</h3>
         <p>Rp 20.000</p>
+        <span class="qty-badge" hidden>0</span>
       </div>
 
-      <div class="menu-card">
+      <div class="menu-card" data-name="Birthday Cake" data-price="250000" data-emoji="🎂">
         <span>🎂</span>
         <h3>Birthday Cake</h3>
         <p>Rp 250.000</p>
+        <span class="qty-badge" hidden>0</span>
       </div>
 
-      <div class="menu-card">
+      <div class="menu-card" data-name="Sweet Candy Box" data-price="40000" data-emoji="🍬">
         <span>🍬</span>
         <h3>Sweet Candy Box</h3>
         <p>Rp 40.000</p>
+        <span class="qty-badge" hidden>0</span>
+      </div>
+
+    </div>
+
+    <!-- RINGKASAN PESANAN -->
+    <div class="order-summary" id="orderSummary" hidden>
+      <h3>🛒 Ringkasan Pesanan</h3>
+      <ul id="summaryList"></ul>
+      <div class="summary-total">
+        <span>Total Estimasi</span>
+        <strong id="summaryTotal">Rp 0</strong>
+      </div>
+      <button type="button" class="btn btn-ghost" id="clearSummary">Kosongkan Pilihan</button>
+    </div>
+  </section>
+
+  <!-- ULASAN BERJALAN -->
+  <section class="marquee-section">
+    <h2>💖 Apa Kata Pelanggan</h2>
+    <div class="marquee-track">
+
+      <div class="marquee-item">
+        <span class="stars">⭐⭐⭐⭐⭐</span>
+        <p>"Kuenya lembut banget, anak saya suka sekali!"</p>
+        <strong>Citra Ayu</strong>
+      </div>
+
+      <div class="marquee-item">
+        <span class="stars">⭐⭐⭐⭐⭐</span>
+        <p>"Custom cake sesuai request, prosesnya gampang."</p>
+        <strong>Budi Santoso</strong>
+      </div>
+
+      <div class="marquee-item">
+        <span class="stars">⭐⭐⭐⭐⭐</span>
+        <p>"Croissant-nya juara, renyah di luar lembut di dalam."</p>
+        <strong>Dimas Pratama</strong>
+      </div>
+
+      <div class="marquee-item">
+        <span class="stars">⭐⭐⭐⭐⭐</span>
+        <p>"Pesan H-1 masih dibantu, pelayanannya ramah banget."</p>
+        <strong>Sinta Lestari</strong>
+      </div>
+
+      <div class="marquee-item">
+        <span class="stars">⭐⭐⭐⭐⭐</span>
+        <p>"Kuenya lembut banget, anak saya suka sekali!"</p>
+        <strong>Citra Ayu</strong>
+      </div>
+
+      <div class="marquee-item">
+        <span class="stars">⭐⭐⭐⭐⭐</span>
+        <p>"Custom cake sesuai request, prosesnya gampang."</p>
+        <strong>Budi Santoso</strong>
+      </div>
+
+      <div class="marquee-item">
+        <span class="stars">⭐⭐⭐⭐⭐</span>
+        <p>"Croissant-nya juara, renyah di luar lembut di dalam."</p>
+        <strong>Dimas Pratama</strong>
+      </div>
+
+      <div class="marquee-item">
+        <span class="stars">⭐⭐⭐⭐⭐</span>
+        <p>"Pesan H-1 masih dibantu, pelayanannya ramah banget."</p>
+        <strong>Sinta Lestari</strong>
       </div>
 
     </div>
@@ -155,10 +252,25 @@
             <label for="keterangan">Keterangan <span class="hint">(opsional)</span></label>
             <textarea id="keterangan"
               placeholder="Contoh: 1 loyang red velvet ukuran 20cm, diambil tanggal 25 Juni, tulisan 'Happy Birthday'."></textarea>
+            <span class="hint" id="autoFillHint"></span>
+          </div>
+
+          <div class="field">
+            <label for="status">📌 Status Pesanan</label>
+            <select id="status">
+              <option value="Pending">⏳ Pending</option>
+              <option value="Diproses">🍳 Diproses</option>
+              <option value="Selesai">✅ Selesai</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>💰 Total Estimasi</label>
+            <input type="text" id="totalEstimasiTampil" value="Rp 0" disabled>
           </div>
 
           <div class="form-actions">
-            <button type="reset" class="btn btn-ghost">Bersihkan</button>
+            <button type="reset" class="btn btn-ghost" id="resetBtn">Bersihkan</button>
             <button type="submit" class="btn btn-primary">Kirim Pesanan 🧁</button>
           </div>
 
@@ -169,17 +281,8 @@
 
   <footer>Dibuat dengan 💖 — Honeycrumb Bakery Order System</footer>
 
+  <div id="confettiContainer"></div>
   <div id="notification"></div>
-
-  <!-- OVERLAY SUKSES KIRIM PESANAN -->
-  <div class="success-overlay" id="successOverlay">
-    <div class="success-box">
-      <div class="success-emoji">🎉🧁🎉</div>
-      <h3>Pesanan Terkirim!</h3>
-      <p>Yeay, pesananmu sudah masuk ke dapur Honeycrumb. Mengarahkan ke halaman data...</p>
-    </div>
-  </div>
-
   <script src="js/script.js"></script>
 </body>
 

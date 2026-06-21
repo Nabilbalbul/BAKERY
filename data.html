@@ -16,6 +16,18 @@
 
 <body>
 
+  <div id="preloader">
+    <div class="preloader-donut">🍩</div>
+    <div class="preloader-text">Memanggang halaman...</div>
+  </div>
+
+  <button id="scrollTopBtn" title="Kembali ke atas">⬆️</button>
+
+  <div class="bg-bubbles" aria-hidden="true">
+    <span>🍓</span><span>🧁</span><span>🍩</span><span>🍰</span><span>🥐</span>
+    <span>🍪</span><span>🎂</span><span>🍮</span><span>🥨</span><span>🍬</span>
+  </div>
+
   <!-- NAVBAR -->
   <nav class="navbar">
     <div class="brand">
@@ -23,10 +35,15 @@
       Honeycrumb Bakery
     </div>
 
-    <div class="nav-links">
-      <a href="landing.html">Home</a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="nav-links" id="navLinks">
       <a href="index.html">Form Pesanan</a>
       <a href="data.html" class="active">Data Pesanan</a>
+      <a href="tentang.html">Tentang Kami</a>
+      <button class="theme-toggle" id="themeToggle" title="Mode Gelap/Terang">🌙</button>
     </div>
   </nav>
 
@@ -56,13 +73,13 @@
       <div class="cute-box">
         <span>🍓</span>
         <h3>Best Seller</h3>
-        <p>Strawberry Cake</p>
+        <p id="bestSeller">Belum ada data</p>
       </div>
 
       <div class="cute-box">
-        <span>🎂</span>
-        <h3>Custom Cake</h3>
-        <p>Favorit Pelanggan</p>
+        <span>💰</span>
+        <h3>Total Estimasi Omzet</h3>
+        <p id="totalOmzet">Rp 0</p>
       </div>
 
       <div class="cute-box">
@@ -89,7 +106,17 @@
         <span class="count-pill" id="countPill">
           0 Pesanan
         </span>
+      </div>
 
+      <div class="toolbar">
+        <input type="text" id="searchInput" placeholder="🔍 Cari nama / no HP...">
+        <select id="filterStatus">
+          <option value="">📌 Semua Status</option>
+          <option value="Pending">⏳ Pending</option>
+          <option value="Diproses">🍳 Diproses</option>
+          <option value="Selesai">✅ Selesai</option>
+        </select>
+        <button type="button" class="btn btn-ghost" id="exportBtn">⬇️ Export CSV</button>
       </div>
 
       <div class="table-wrap" id="tableWrap">
@@ -102,13 +129,21 @@
               <th>Tanggal Ambil</th>
               <th>Jenis Layanan</th>
               <th>Keterangan</th>
-              <th>Tanggal Input</th>
+              <th>Total</th>
+              <th>Status</th>
               <th>Aksi</th>
             </tr>
           </thead>
           <tbody id="dataTableBody">
           </tbody>
         </table>
+      </div>
+
+      <!-- HASIL PENCARIAN KOSONG -->
+      <div class="empty-state" id="noResultState" hidden>
+        <span class="emoji">🔍</span>
+        <h3>Tidak Ditemukan</h3>
+        <p>Coba kata kunci atau filter lain ya 💕</p>
       </div>
 
       <!-- EMPTY STATE -->
