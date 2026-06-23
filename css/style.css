@@ -762,11 +762,16 @@ footer{
 
 .action-btn{
     border:none;
-    padding:8px 12px;
+    padding:9px 14px;
     border-radius:12px;
     cursor:pointer;
     font-weight:700;
-    margin:2px;
+    font-size:.85rem;
+    white-space:nowrap;
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    text-decoration:none;
 }
 
 .edit-btn{
@@ -859,7 +864,6 @@ footer{
     overflow:hidden;
     transition:.35s ease;
 }
-
 
 .action-btn::after{
     content:"";
@@ -1668,6 +1672,24 @@ body[data-theme="dark"] footer{
   font-size:.85rem;
   border:none;
   cursor:pointer;
+  min-width:130px;
+}
+
+.status-wrap{
+  display:flex;
+  justify-content:center;
+}
+
+.aksi-group{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  justify-content:center;
+  align-items:center;
+}
+
+.aksi-group .action-btn{
+  flex:0 0 auto;
 }
 
 .status-Pending{
@@ -1805,9 +1827,37 @@ body[data-theme="dark"] footer{
 
   .table-wrap td:last-child{
     border-bottom:none;
+    flex-direction:column;
+    align-items:stretch;
+    gap:10px;
+  }
+
+  .table-wrap td:last-child::before{
+    margin-bottom:4px;
+  }
+
+  .aksi-group{
+    justify-content:stretch;
+  }
+
+  .aksi-group .action-btn{
+    flex:1 1 auto;
     justify-content:center;
-    flex-wrap:wrap;
-    gap:8px;
+  }
+
+  .status-wrap{
+    width:100%;
+  }
+
+  .status-badge{
+    width:100%;
+    min-width:0;
+  }
+
+  .table-wrap td[data-label="Status"]{
+    flex-direction:column;
+    align-items:stretch;
+    gap:6px;
   }
 
   .table-wrap td::before{
@@ -1967,10 +2017,11 @@ body[data-theme="dark"] .bg-bubbles span{
 .gallery-card{
   background:white;
   border-radius:25px;
-  padding:30px 15px;
+  padding:0 0 16px;
   text-align:center;
   box-shadow:0 10px 25px rgba(255,182,193,.25);
   transition:.4s;
+  overflow:hidden;
 }
 
 .gallery-card:hover{
@@ -1978,16 +2029,35 @@ body[data-theme="dark"] .bg-bubbles span{
   box-shadow:0 18px 32px rgba(255,182,193,.35);
 }
 
+.gallery-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  display:block;
+  background:linear-gradient(135deg,#ffe3ee,#fff3d6);
+  transition:.4s;
+}
+
+.gallery-card:hover img{
+  transform:scale(1.08);
+}
+
 .gallery-card span{
   font-size:3.2rem;
   display:block;
-  margin-bottom:10px;
+  margin:25px 0 10px;
 }
 
 .gallery-card p{
   font-weight:700;
   color:#a8587e;
   font-size:.9rem;
+  margin-top:12px;
+  padding:0 10px;
+}
+
+body[data-theme="dark"] .gallery-card{
+  background:#2e242c;
 }
 
 .testimoni-card{

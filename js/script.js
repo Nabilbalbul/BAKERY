@@ -60,6 +60,25 @@ initScrollReveal();
 
 
 // ===============================
+// FALLBACK GAMBAR GALERI (kalau gagal load)
+// ===============================
+
+document.querySelectorAll(".gallery-card img").forEach((img) => {
+  img.addEventListener("error", function () {
+    const wrap = document.createElement("div");
+    wrap.style.height = "180px";
+    wrap.style.display = "flex";
+    wrap.style.alignItems = "center";
+    wrap.style.justifyContent = "center";
+    wrap.style.fontSize = "3.2rem";
+    wrap.style.background = "linear-gradient(135deg,#ffe3ee,#fff3d6)";
+    wrap.textContent = "🍰";
+    this.replaceWith(wrap);
+  }, { once: true });
+});
+
+
+// ===============================
 // SCROLL TO TOP BUTTON
 // ===============================
 
@@ -601,16 +620,20 @@ function renderTable() {
         <td data-label="Keterangan">${item.keterangan || "-"}</td>
         <td data-label="Total">${formatRupiah(item.total || 0)}</td>
         <td data-label="Status">
-          <select class="status-badge status-${status}" onchange="updateStatus(${realIndex}, this.value)">
-            <option value="Pending" ${status === "Pending" ? "selected" : ""}>⏳ Pending</option>
-            <option value="Diproses" ${status === "Diproses" ? "selected" : ""}>🍳 Diproses</option>
-            <option value="Selesai" ${status === "Selesai" ? "selected" : ""}>✅ Selesai</option>
-          </select>
+          <div class="status-wrap">
+            <select class="status-badge status-${status}" onchange="updateStatus(${realIndex}, this.value)">
+              <option value="Pending" ${status === "Pending" ? "selected" : ""}>⏳ Pending</option>
+              <option value="Diproses" ${status === "Diproses" ? "selected" : ""}>🍳 Diproses</option>
+              <option value="Selesai" ${status === "Selesai" ? "selected" : ""}>✅ Selesai</option>
+            </select>
+          </div>
         </td>
         <td data-label="Aksi">
-          <button class="action-btn edit-btn" onclick="editData(${realIndex})">✏️ Edit</button>
-          <button class="action-btn delete-btn" onclick="hapusData(${realIndex})">🗑️ Hapus</button>
-          <a class="action-btn whatsapp-btn" href="https://wa.me/${waNumber}?text=${waMessage}" target="_blank">💬 WA</a>
+          <div class="aksi-group">
+            <button class="action-btn edit-btn" onclick="editData(${realIndex})" title="Edit pesanan">✏️ <span>Edit</span></button>
+            <button class="action-btn delete-btn" onclick="hapusData(${realIndex})" title="Hapus pesanan">🗑️ <span>Hapus</span></button>
+            <a class="action-btn whatsapp-btn" href="https://wa.me/${waNumber}?text=${waMessage}" target="_blank" title="Kirim WhatsApp">💬 <span>WA</span></a>
+          </div>
         </td>
       </tr>
     `;
